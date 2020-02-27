@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Queue Display</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link th:href="@{/css/style.css}" rel="STYLESHEET" type="text/css" />
+<style>
+#queue {
+	width: 700px;
+}
+#queue td {
+	padding: 2em;
+}
+.patient {
+	padding: 1em;
+}
+</style>
+</head>
+
+<body>
+<h1>Queue Display</h1>
+
+<table id="queue">
+	<tr th:each="index: ${#numbers.sequence(0, queueNumbers.length - 1, 4)}">
+		<!-- 0 -->
+		<td>
+			<span
+				th:if="${index < queueNumbers.length}"
+				th:text="${queueNumbers[index] + ' ' + '(' + queuePositions[index] + ')'}"
+				class="patient">
+			</span>
+		</td>
+
+		<!-- 1 -->
+		<td>
+			<span
+				th:if="${index + 1 < queueNumbers.length}"
+				th:text="${queueNumbers[index + 1] + ' ' + '(' + queuePositions[index + 1] + ')'}"
+				class="patient">
+			</span>
+		</td>
+
+		<!-- 2 -->
+		<td>
+			<span
+				th:if="${index + 2 < queueNumbers.length}"
+				th:text="${queueNumbers[index + 2] + ' ' + '(' + queuePositions[index + 2] + ')'}"
+				class="patient">
+			</span>
+		</td>
+
+		<!-- 3 -->
+		<td>
+			<span
+				th:if="${index + 3 < queueNumbers.length}"
+				th:text="${queueNumbers[index + 3] + ' ' + '(' + queuePositions[index + 3] + ')'}"
+				class="patient">
+			</span>
+		</td>
+	</tr>
+</table>
+
+<hr />
+
+<p>
+Made by <a href="mailto:markus@dataswamp.org">Markus Uhlin</a>
+</p>
+
+</body>
+</html>
