@@ -50,7 +50,7 @@ public class MainController {
 			System.out.println("MainController: getRemoteData: OK");
 			//System.out.println(data);
 		} catch (Exception ex) {
-			System.err.println("MainController: getRemoteData" + ex.getMessage());
+			System.err.println("MainController: getRemoteData: " + ex.getMessage());
 			return null;
 		}
 
